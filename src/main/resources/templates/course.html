@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>标题</p>
+    <!-- 替换id属性 -->
+    <p id="a" th:id="b">标题</p>
+
+    <p th:text="你好">标题</p>
+    <hr/>
+    <p th:text="${name}">标题</p>
+
+    <p th:text="${course}">标题</p>
+    <p th:text="${course.cname}">标题</p>
+
+    <p th:text="${list}">标题</p>
+    <p th:text="${list[0]}">标题</p>
+    <p th:text="${list[0].cname}">标题</p>
+
+    <hr/>
+    <p th:text="${course}">标题</p>
+    <p th:text="*{course}">标题</p>
+
+    <!-- object:定义一个对象 -->
+    <div th:object="${course}">
+        <!-- $获取上下文中的对象course 的cname属性 -->
+        <p th:text="${course.cname}">标题</p>
+    </div>
+
+    <div th:object="${course}">
+        <!-- *获取object的属性值 -->
+        <p th:text="*{cname}">标题</p>
+    </div>
+
+    <a href="1.html" th:href="@{2.html}">超链接1</a>
+    <a href="2.html" th:href="${name}">超链接2</a>
+
+    <hr/>
+    <!-- 条件成立显示 -->
+    <a href="#" th:if="${name != ''}">登录</a>
+    <!-- 条件不成立显示 -->
+    <a href="#" th:unless="${name != ''}">欢迎</a>
+
+    <hr/>
+    <select>
+        <option th:each="l:${list}" th:text="${l.cname}" th:value="${l.cid}">-----请选择-----</option>
+    </select>
+
+    <table border="1">
+        <tr th:each="l:${list}">
+            <td th:text="${l.cid}">111</td>
+            <td th:text="${l.cname}">222</td>
+        </tr>
+    </table>
+</body>
+</html>

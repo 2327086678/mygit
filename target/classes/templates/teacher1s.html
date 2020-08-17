@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" cellspacing="0">
+    <tr th:each="l:${teacher1s}">
+        <td th:text="${l.tid}"></td>
+        <td th:text="${l.tname}"></td>
+    </tr>
+</table>
+</body>
+</html>
